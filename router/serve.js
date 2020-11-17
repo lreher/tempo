@@ -32,7 +32,7 @@ function serveFile(response, servePath) {
   var extensionToContentType = {
     'html': 'text/html',
     'css': 'text/css',
-    'js': 'text/json',
+    'js': 'text/javascript',
     'ico': 'image/x-icon'
   }
 

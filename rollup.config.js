@@ -1,12 +1,17 @@
-import vuePlugin from 'rollup-plugin-vue'
+import vue from 'rollup-plugin-vue';
+import babel from 'rollup-plugin-buble';
+import commonjs from 'rollup-plugin-commonjs';
 
 export default {
-  input: 'client/index.vue',
+  input: 'client/index.js',
   output: {
     file: 'public/bundle.js',
-    format: 'cjs'
+    format: 'iife'
   },
   plugins: [
-    vuePlugin()
-  ]
+    // commonjs(),
+    vue(),
+    babel(),
+  ],
+  external: ['vue']
 };
