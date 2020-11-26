@@ -4,7 +4,11 @@
   "description": "A dead simple and flexible music player built for the browser",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.js",
+    "watch": "webpack --config webpack.config.js --watch",
+    "watch-poll": "webpack --config webpack.config.js --watch"
+
   },
   "repository": {
     "type": "git",
@@ -17,13 +21,16 @@
   },
   "homepage": "https://github.com/lreher/tempo#readme",
   "dependencies": {
-    "@vue/compiler-sfc": "^3.0.2",
+    "axios": "^0.21.0",
     "dotenv": "^8.2.0",
     "find-my-way": "^3.0.5",
-    "rollup-plugin-buble": "^0.19.8",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-vue": "^6.0.0-beta.11",
     "vue": "^2.6.12"
+  },
+  "devDependencies": {
+    "vue-loader": "^15.9.5",
+    "vue-template-compiler": "^2.6.12",
+    "webpack": "^5.6.0",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0"
   }
 }

@@ -1,3 +1,9 @@
-import Hello from './Hello.vue'
+import Vue from 'vue'
+import App from './App.vue'
 
-export default Hello
+window.onload = function () {
+  var main = new Vue({
+    el: '#app',
+    render: h => h(App)
+  });
+}
