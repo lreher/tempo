@@ -20,6 +20,12 @@ module.exports = function(router) {
     serveFile(response, '../public/bundle.js');
     return;
   });
+
+  // 
+  router.get('/style.css', (request, response, params) => {
+    serveFile(response, '../public/style.css');
+    return;
+  });
 }
 
 function serveFile(response, servePath) {
