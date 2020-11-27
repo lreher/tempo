@@ -15,17 +15,32 @@ module.exports = function(router) {
     return;
   });
 
-  // Bundle js
+  // JS
   router.get('/bundle.js', (request, response, params) => {
     serveFile(response, '../public/bundle.js');
     return;
   });
 
-  // 
+  // CSS
   router.get('/style.css', (request, response, params) => {
     serveFile(response, '../public/style.css');
     return;
   });
+
+  // MP3
+  router.get('/sounds/*', (request, response, params) => {
+    console.log(request.url);
+    // serveFile(response, '../public' + request.url);
+
+    var resolvedPath = path.resolve(__dirname, '../public' + request.url);
+
+    var file = fs.readFileSync(resolvedPath);
+
+    response.writeHead(200, { 'Content-Type': 'audio/mp3' });
+    response.end(file);
+    return;
+  });
+
 }
 
 function serveFile(response, servePath) {
@@ -39,7 +54,8 @@ function serveFile(response, servePath) {
     'html': 'text/html',
     'css': 'text/css',
     'js': 'text/javascript',
-    'ico': 'image/x-icon'
+    'ico': 'image/x-icon',
+    'mp3': 'audio/mpeg'
   }
 
   response.writeHead(200, { 'Content-Type': extensionToContentType[extension] });
